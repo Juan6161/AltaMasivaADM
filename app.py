@@ -244,8 +244,9 @@ def descargar():
 
 
 if __name__ == '__main__':
-    # Obtener la IP local
+    # Solo para desarrollo local
     import socket
+    port = int(os.environ.get('PORT', 5000))
     hostname = socket.gethostname()
     local_ip = socket.gethostbyname(hostname)
     
@@ -253,9 +254,9 @@ if __name__ == '__main__':
     print("Generador de Personas Físicas - Servidor Web")
     print("=" * 60)
     print(f"\n✓ Servidor iniciado en:")
-    print(f"  Local:   http://127.0.0.1:5000")
-    print(f"  Red:     http://{local_ip}:5000")
+    print(f"  Local:   http://127.0.0.1:{port}")
+    print(f"  Red:     http://{local_ip}:{port}")
     print(f"\n✓ Presiona Ctrl+C para detener el servidor\n")
     
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
 

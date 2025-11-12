@@ -122,9 +122,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Archivos generados
+# Archivos generados (pero mantener archivos de configuración)
 personas_generadas.txt
-*.txt
+# No ignorar archivos de configuración como runtime.txt, render.yaml
 
 # IDEs
 .vscode/

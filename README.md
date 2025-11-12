@@ -15,6 +15,7 @@ Aplicación web desarrollada en Flask para generar datos de personas físicas co
 
 - Python 3.6 o superior
 - Flask 3.0.0 o superior
+- Gunicorn (para producción) - Ya incluido en requirements.txt
 
 ## 🛠️ Instalación
 
@@ -89,7 +90,12 @@ generador-personas-fisicas/
 ├── app.py                 # Aplicación principal Flask
 ├── requirements.txt       # Dependencias del proyecto
 ├── README.md             # Este archivo
+├── DESPLIEGUE.md         # Guía de despliegue en la nube
+├── LICENSE               # Licencia MIT
 ├── .gitignore            # Archivos ignorados por Git
+├── Procfile              # Configuración para Heroku/Railway
+├── runtime.txt           # Versión de Python
+├── render.yaml           # Configuración para Render
 ├── ejecutar.bat          # Script para ejecutar en Windows
 ├── instalar.bat          # Script para instalar en Windows
 └── templates/            # Plantillas HTML
@@ -126,6 +132,34 @@ El archivo generado contiene una línea por persona con el siguiente formato:
 - **Fechas**: Fechas de ingreso aleatorias (hasta 20 años atrás)
 - **Género**: Determinado automáticamente según el nombre
 
+## 🌐 Despliegue en la Nube
+
+Esta aplicación está lista para desplegarse en plataformas de hosting como Render, Railway, PythonAnywhere, Fly.io, o Heroku.
+
+### Despliegue Rápido en Render (Recomendado - 5 minutos)
+
+**Guía rápida**: Consulta [DESPLIEGUE_RAPIDO.md](DESPLIEGUE_RAPIDO.md) para instrucciones paso a paso.
+
+**Resumen**:
+1. Crea una cuenta en [Render](https://render.com)
+2. Conecta tu repositorio de GitHub
+3. Crea un nuevo Web Service
+4. Configuración:
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn app:app`
+   - Plan: Free
+5. Despliega - ¡Tu aplicación estará disponible en minutos!
+
+Para instrucciones detalladas de despliegue en diferentes plataformas, consulta el archivo [DESPLIEGUE.md](DESPLIEGUE.md)
+
+### Plataformas Soportadas
+
+- ✅ **Render** - Plan gratuito disponible, muy fácil de usar
+- ✅ **Railway** - Plan gratuito con $5 de créditos
+- ✅ **PythonAnywhere** - Específico para Python
+- ✅ **Fly.io** - Plan gratuito generoso
+- ✅ **Heroku** - Requiere tarjeta de crédito para plan gratuito
+
 ## 🐛 Solución de Problemas
 
 ### Error: "No module named 'flask'"
@@ -157,6 +191,32 @@ Las contribuciones son bienvenidas. Por favor:
 3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
+
+## 🌐 Despliegue en Producción
+
+Esta aplicación está lista para desplegarse en diferentes plataformas de hosting:
+
+### Opciones de Hosting Gratuito
+
+- **Render.com** (Recomendado) - Fácil de usar, despliegue automático desde GitHub
+- **Railway.app** - $5 créditos gratuitos mensuales
+- **PythonAnywhere** - Hosting especializado en Python
+- **Fly.io** - Opción moderna con buena documentación
+
+### Instrucciones de Despliegue
+
+Consulta el archivo [DESPLIEGUE.md](DESPLIEGUE.md) para instrucciones detalladas sobre cómo desplegar la aplicación en cada plataforma.
+
+### Despliegue Rápido en Render.com
+
+1. Sube tu código a GitHub
+2. Ve a [render.com](https://render.com) y crea una cuenta
+3. Crea un nuevo "Web Service"
+4. Conecta tu repositorio de GitHub
+5. Configura:
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `gunicorn wsgi:app`
+6. ¡Listo! Tu aplicación estará disponible en una URL pública
 
 ## 📧 Contacto
 
